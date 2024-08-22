@@ -1,0 +1,786 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<flow id="afb44618-b475-4e82-88ce-c64d395104df">
+  <descriptionCdata><![CDATA[afb44618-b475-4e82-88ce-c64d395104df.08e26b5f-7762-4b84-96a4-d15decfe6d7d.callout=STEP 2. The "Generate Random Number" step generates a random number between 1 and 100, and places the result into a flow variable.
+afb44618-b475-4e82-88ce-c64d395104df.177fb2e6-a410-4940-ba4e-257816dd1068.description=This a parallel split step.
+afb44618-b475-4e82-88ce-c64d395104df.1d1fe197-28ec-4212-a4c8-d9d32b23a393.transition.description=The "Generate Random Number" step has succeeded. The flow transitions to the end step of the lane.
+afb44618-b475-4e82-88ce-c64d395104df.2bc93ea3-da04-453f-b1d3-9e3eab3fb037.description=The "Get Current Date and Time" step checks the current date and time and returns a java-formatted string to the "dateTime" flow variable defined on the Results tab.\n\nResponses\:\n"success" - The date and time were retrieved successfully. The flow transitions to the end step of the lane.\n"failure" - The date and time could not be retrieved. The flow transitions to the end step of the lane.\n
+afb44618-b475-4e82-88ce-c64d395104df.326555c7-dfdf-4e85-8b45-b4952299dc64.callout=The "How do I\: Create a parallel flow" flow shows how to use a parallel split step to  process separate sets of step sequences, called lanes, simultaneously. Parallel split steps are best used for doing dissimilar things simultaneously and independently of each other. The two lanes of the parallel split step are carried out at the same time - one generates a random number, and the other gets the current date and time.
+afb44618-b475-4e82-88ce-c64d395104df.4a8dcd8a-8098-422b-8afb-edac5ba92198.callout=Understanding data movement - how each of the flow's steps gets the data it needs to do its work - is crucial to understanding how to harness the flow's techniques for your own purposes. Data can be assigned from user input when the flow runs, from step results, or from flow variables. \nData movement in this How Do I flow is detailed on the Description tab of the flow's Properties sheet and of each step's Inspector. To open the flow's Properties sheet, click the Properties tab at the lower-left of the flow canvas. To open a step's Inspector, double-click the step.\n
+afb44618-b475-4e82-88ce-c64d395104df.5f7d87fa-bcbb-49d2-89e9-bd5c6c49e504.callout=STEP 1.The parallel split step  has two lanes that run simultaneously \u2013 Generate Random Number and Get Current Date and Time.\n\n\n\n\n\n\n\nPlease note that while the lanes of the parallel split step run simultaneously in Central, they are executed  serially in the Studio debugger.\n
+afb44618-b475-4e82-88ce-c64d395104df.6769e1a7-1eec-4533-bf6a-ff5258e4d5ef.description=The "Generate Random Number" step generates a random number.\n\nStep Inputs\:\n"max" - The maximum number that can be returned.\n"min" - The minimum number that can be returned.\n\nStep Results\:\nA random number between "max" and "min" (inclusive) is generated and assigned to the "randomNumber" flow variable which is defined on the Results tab .\n\nStep Responses\:\n"success" - The step was able to generate a random number. The flow transitions to the end step of the lane.\n"failure" - The step was unable to generate a random number. The flow transitions to the end step of the lane.\n
+afb44618-b475-4e82-88ce-c64d395104df.6b0d8324-c320-41cc-8237-31f0d7ccd126.transition.description=The "Get Current Date and Time" step has failed. The flow transitions to the end step of the lane.
+afb44618-b475-4e82-88ce-c64d395104df.6b15b799-90e1-47dd-9761-845e4762c74e.transition.description=The "Display Message" step was able to display its message. The flow transitions to the "Resolved\:success" step and ends successfully.
+afb44618-b475-4e82-88ce-c64d395104df.73dd7ff2-27d2-43b2-83c5-41dc178d5353.transition.description=The "Get Current Date and Time" step has succeeded. The flow transitions to the end step of the lane.
+afb44618-b475-4e82-88ce-c64d395104df.95959d72-4a53-4585-ad0c-73257bbed13e.callout=STEP 3. The "Get Current Date and Time" step retrieves a string representation of the current date and time, placing it into another flow variable.
+afb44618-b475-4e82-88ce-c64d395104df.a3fab6de-11fe-41c0-99f6-d4504c2372c5.description=This step provides a message to the user. This step is actually a subflow. To learn about the steps contained in the subflow, right-click the step, click "Open Subflow," and then study the subflow's diagram and properties page, and the Inspectors of the subflow's steps. On the subflow's Properties sheet, you can see the flow inputs on which the step's inputs are based.\n\nStep Inputs\:\n"message" -  The message to send to the user. In this flow, the "message" input gets its value from a constant value.\n\nStep Responses\:\n"success" - The step was able to display the message. The flow transitions to the "Resolved\: success" step and ends successfully.
+afb44618-b475-4e82-88ce-c64d395104df.a6d00745-c81c-438d-983c-5fc9d79e744e.description=End Branch
+afb44618-b475-4e82-88ce-c64d395104df.description=The \u201CHow do I\: Create a parallel flow\u201D flow demonstrates how to use a parallel split step. \n\n<pre>\nThis flow was created using the following OO operations\:\n- \u201CRandom Number Generator\u201D from the Library/Utility Operations folder\n- \u201CGet Current Date and Time\u201D from the  Library/Utility Operations/Date and Time folder\n- \u201CDisplay Message\u201D from the Library/Utility Operations folder\n\nThe flow contains the following steps\:\n\n1. The parallel split step starts, running the two lanes simultaneously.     \n\n2. The \u201CGenerate Random Number\u201D  step generates a random number.\n     Input\: "max"\n     Gets value from\:  constant value \u201C100\u201D\n\n     Input\: "min"\n     Gets value from\:  constant value \u201C1\u201D\n \n     Places result in\: flow variable "randomNumber" \n\n3. The \u201CGet Current Date and Time\u201D step captures the current date and time.\n     Places result in\:   flow variable  \u201CdateTime\u201D\n\n4. The \u201CDisplay Message\u201D step displays a message to the user.\n     Input\:  message\n     Gets value from\:  constant  \n         " Parallel split step completed. \n         The current date/time is ${dateTime}.  \n          A random number\: ${randomNumber}."\n   \n   Places result in\: default flow variable "message"\n</pre>
+afb44618-b475-4e82-88ce-c64d395104df.f34c8404-9c63-4001-99f7-27fe58b50a97.callout=STEP 4. The "Display Message" step displays a message to the user when the flow is complete. The message displays the flow variables populated from the parallel steps.\nFor more information on the inputs, see the Description tab in the step's Inspector.\n
+afb44618-b475-4e82-88ce-c64d395104df.fe9c4621-22b2-4782-bcf3-398c219879e1.transition.description=The "Generate Random Number" step has failed. The flow transitions to the end step of the lane.
+]]></descriptionCdata>
+  <annotation>afb44618-b475-4e82-88ce-c64d395104df.description</annotation>
+  <name>How do I- Create a parallel flow</name>
+  <categories/>
+  <inputs/>
+  <possibleResponses>
+    <opResponse id="a5aaf30a-538e-4878-aa42-03cdeb0149fa">
+      <annotation></annotation>
+      <name>success</name>
+      <isDefault>true</isDefault>
+      <onFailure>false</onFailure>
+      <type>RESOLVED</type>
+      <matchRules/>
+    </opResponse>
+  </possibleResponses>
+  <availableResultExpressions/>
+  <resultExpression id="754e2bc5-2326-42c8-bc8b-77869a34f03f">
+    <annotation></annotation>
+    <name>FailureMessage</name>
+    <fieldName>FailureMessage</fieldName>
+    <sourceType>RAWRESULT</sourceType>
+    <filters/>
+  </resultExpression>
+  <iconSpec id="ec64af4a-6e21-4e20-a0a3-6bc62a2b1900">
+    <baseIcon>flow.png</baseIcon>
+    <basePath>System</basePath>
+    <readOnly>false</readOnly>
+    <layers/>
+  </iconSpec>
+  <callouts>
+    <callout id="5f7d87fa-bcbb-49d2-89e9-bd5c6c49e504">
+      <text>afb44618-b475-4e82-88ce-c64d395104df.5f7d87fa-bcbb-49d2-89e9-bd5c6c49e504.callout</text>
+      <bounds>
+        <x>13.0</x>
+        <y>256.0</y>
+        <width>126.0</width>
+        <height>306.0</height>
+      </bounds>
+      <layer>-1</layer>
+    </callout>
+    <callout id="326555c7-dfdf-4e85-8b45-b4952299dc64">
+      <text>afb44618-b475-4e82-88ce-c64d395104df.326555c7-dfdf-4e85-8b45-b4952299dc64.callout</text>
+      <bounds>
+        <x>0.0</x>
+        <y>71.0</y>
+        <width>972.0</width>
+        <height>57.0</height>
+      </bounds>
+      <layer>-1</layer>
+    </callout>
+    <callout id="f34c8404-9c63-4001-99f7-27fe58b50a97">
+      <text>afb44618-b475-4e82-88ce-c64d395104df.f34c8404-9c63-4001-99f7-27fe58b50a97.callout</text>
+      <bounds>
+        <x>573.0</x>
+        <y>234.0</y>
+        <width>172.0</width>
+        <height>140.0</height>
+      </bounds>
+      <layer>-1</layer>
+      <step>
+        <refId>a3fab6de-11fe-41c0-99f6-d4504c2372c5</refId>
+      </step>
+    </callout>
+    <callout id="4a8dcd8a-8098-422b-8afb-edac5ba92198">
+      <text>afb44618-b475-4e82-88ce-c64d395104df.4a8dcd8a-8098-422b-8afb-edac5ba92198.callout</text>
+      <bounds>
+        <x>0.0</x>
+        <y>0.0</y>
+        <width>970.0</width>
+        <height>68.0</height>
+      </bounds>
+      <layer>-1</layer>
+    </callout>
+    <callout id="08e26b5f-7762-4b84-96a4-d15decfe6d7d">
+      <text>afb44618-b475-4e82-88ce-c64d395104df.08e26b5f-7762-4b84-96a4-d15decfe6d7d.callout</text>
+      <bounds>
+        <x>223.0</x>
+        <y>162.0</y>
+        <width>209.0</width>
+        <height>68.0</height>
+      </bounds>
+      <layer>-1</layer>
+      <step>
+        <refId>6769e1a7-1eec-4533-bf6a-ff5258e4d5ef</refId>
+      </step>
+    </callout>
+    <callout id="95959d72-4a53-4585-ad0c-73257bbed13e">
+      <text>afb44618-b475-4e82-88ce-c64d395104df.95959d72-4a53-4585-ad0c-73257bbed13e.callout</text>
+      <bounds>
+        <x>164.0</x>
+        <y>600.0</y>
+        <width>406.0</width>
+        <height>43.0</height>
+      </bounds>
+      <layer>-1</layer>
+      <step>
+        <refId>2bc93ea3-da04-453f-b1d3-9e3eab3fb037</refId>
+      </step>
+    </callout>
+  </callouts>
+  <checkPointFlow>true</checkPointFlow>
+  <compatibleRuntimeContext>false</compatibleRuntimeContext>
+  <historyCheckPointFlow>true</historyCheckPointFlow>
+  <steps>
+    <parallelMultiStep id="177fb2e6-a410-4940-ba4e-257816dd1068">
+      <annotation>afb44618-b475-4e82-88ce-c64d395104df.177fb2e6-a410-4940-ba4e-257816dd1068.description</annotation>
+      <name>Parallel Split</name>
+      <bounds>
+        <x>43.0</x>
+        <y>237.0</y>
+      </bounds>
+      <layer>-1</layer>
+      <hideInbound>false</hideInbound>
+      <addResultToRunContext>false</addResultToRunContext>
+      <isCriticalStep>false</isCriticalStep>
+      <isNonBlocking>false</isNonBlocking>
+      <isParallelStep>false</isParallelStep>
+      <isSingleResponse>true</isSingleResponse>
+      <recordInHistory>false</recordInHistory>
+      <recordRawOutput>false</recordRawOutput>
+      <recordPrimaryOutput>false</recordPrimaryOutput>
+      <checkPointStep>true</checkPointStep>
+      <historyCheckPointStep>true</historyCheckPointStep>
+      <scriptResultStep>false</scriptResultStep>
+      <userPrompt></userPrompt>
+      <bindings/>
+      <transitions>
+        <transition id="12fd09c5-4512-4a51-8e07-747edbc1e00a">
+          <annotation></annotation>
+          <name>done</name>
+          <command>NEXT</command>
+          <linkMode>false</linkMode>
+          <responseSymbol>done</responseSymbol>
+          <shouldHandoff>false</shouldHandoff>
+          <transitionValue>0.0</transitionValue>
+          <destination>
+            <refId>a3fab6de-11fe-41c0-99f6-d4504c2372c5</refId>
+          </destination>
+          <source>
+            <refId>177fb2e6-a410-4940-ba4e-257816dd1068</refId>
+          </source>
+          <positions>
+            <point>
+              <x>291.0</x>
+              <y>175.0</y>
+            </point>
+            <point>
+              <x>901.0</x>
+              <y>315.0</y>
+            </point>
+          </positions>
+          <labelPosition>
+            <x>466.6864566781731</x>
+            <y>-15.71434559910533</y>
+          </labelPosition>
+        </transition>
+      </transitions>
+      <properties/>
+      <doneResponse>
+        <refId>a6d00745-c81c-438d-983c-5fc9d79e744e</refId>
+      </doneResponse>
+      <steps>
+        <step id="2bc93ea3-da04-453f-b1d3-9e3eab3fb037">
+          <annotation>afb44618-b475-4e82-88ce-c64d395104df.2bc93ea3-da04-453f-b1d3-9e3eab3fb037.description</annotation>
+          <name>Get Current Date and Time</name>
+          <bounds>
+            <x>302.0</x>
+            <y>462.0</y>
+          </bounds>
+          <layer>-1</layer>
+          <hideInbound>false</hideInbound>
+          <addResultToRunContext>false</addResultToRunContext>
+          <isCriticalStep>false</isCriticalStep>
+          <isNonBlocking>false</isNonBlocking>
+          <isParallelStep>false</isParallelStep>
+          <isSingleResponse>false</isSingleResponse>
+          <recordInHistory>false</recordInHistory>
+          <recordRawOutput>false</recordRawOutput>
+          <recordPrimaryOutput>false</recordPrimaryOutput>
+          <checkPointStep>true</checkPointStep>
+          <historyCheckPointStep>true</historyCheckPointStep>
+          <scriptResultStep>false</scriptResultStep>
+          <userPrompt></userPrompt>
+          <bindings>
+            <staticBinding id="8be59262-86cb-47c2-8775-f867e1356de9">
+              <annotation></annotation>
+              <toContextKey></toContextKey>
+              <fromContextKey></fromContextKey>
+              <assignFromContext>false</assignFromContext>
+              <assignToContext>false</assignToContext>
+              <inputType>STRING</inputType>
+              <recordKey></recordKey>
+              <isList>false</isList>
+              <required>false</required>
+              <isPersisted>true</isPersisted>
+              <inputSymbol>Field_3</inputSymbol>
+              <listDelimiter></listDelimiter>
+              <value>${in3}</value>
+              <record>false</record>
+            </staticBinding>
+            <staticBinding id="b419b738-5f56-497d-a1e1-5a3a85751b6f">
+              <annotation></annotation>
+              <toContextKey></toContextKey>
+              <fromContextKey></fromContextKey>
+              <assignFromContext>false</assignFromContext>
+              <assignToContext>false</assignToContext>
+              <inputType>STRING</inputType>
+              <recordKey></recordKey>
+              <isList>false</isList>
+              <required>false</required>
+              <isPersisted>true</isPersisted>
+              <inputSymbol>Field_1</inputSymbol>
+              <listDelimiter></listDelimiter>
+              <value>${in1}</value>
+              <record>false</record>
+            </staticBinding>
+            <staticBinding id="f63b5aec-a21a-4bb8-99fd-4f249c5534fb">
+              <annotation></annotation>
+              <toContextKey></toContextKey>
+              <fromContextKey></fromContextKey>
+              <assignFromContext>false</assignFromContext>
+              <assignToContext>false</assignToContext>
+              <inputType>STRING</inputType>
+              <recordKey></recordKey>
+              <isList>false</isList>
+              <required>false</required>
+              <isPersisted>true</isPersisted>
+              <inputSymbol>localeLang</inputSymbol>
+              <listDelimiter></listDelimiter>
+              <value></value>
+              <record>false</record>
+            </staticBinding>
+            <staticBinding id="7b54bfdb-83f6-44a2-9b19-a15764f7ce77">
+              <annotation></annotation>
+              <toContextKey></toContextKey>
+              <fromContextKey></fromContextKey>
+              <assignFromContext>false</assignFromContext>
+              <assignToContext>false</assignToContext>
+              <inputType>STRING</inputType>
+              <recordKey></recordKey>
+              <isList>false</isList>
+              <required>false</required>
+              <isPersisted>true</isPersisted>
+              <inputSymbol>Field_4</inputSymbol>
+              <listDelimiter></listDelimiter>
+              <value>${in4}</value>
+              <record>false</record>
+            </staticBinding>
+            <staticBinding id="80b1010e-d5df-4132-9132-0f1b91d17a57">
+              <annotation></annotation>
+              <toContextKey></toContextKey>
+              <fromContextKey></fromContextKey>
+              <assignFromContext>false</assignFromContext>
+              <assignToContext>false</assignToContext>
+              <inputType>STRING</inputType>
+              <recordKey></recordKey>
+              <isList>false</isList>
+              <required>false</required>
+              <isPersisted>true</isPersisted>
+              <inputSymbol>Field_2</inputSymbol>
+              <listDelimiter></listDelimiter>
+              <value>${in2}</value>
+              <record>false</record>
+            </staticBinding>
+            <staticBinding id="569ff963-067b-443f-9436-3ec2adc262d9">
+              <annotation></annotation>
+              <toContextKey></toContextKey>
+              <fromContextKey></fromContextKey>
+              <assignFromContext>false</assignFromContext>
+              <assignToContext>false</assignToContext>
+              <inputType>STRING</inputType>
+              <recordKey></recordKey>
+              <isList>false</isList>
+              <required>false</required>
+              <isPersisted>true</isPersisted>
+              <inputSymbol>localeCountry</inputSymbol>
+              <listDelimiter></listDelimiter>
+              <value></value>
+              <record>false</record>
+            </staticBinding>
+          </bindings>
+          <transitions>
+            <transition id="73dd7ff2-27d2-43b2-83c5-41dc178d5353">
+              <annotation>afb44618-b475-4e82-88ce-c64d395104df.73dd7ff2-27d2-43b2-83c5-41dc178d5353.transition.description</annotation>
+              <name>success</name>
+              <command>NEXT</command>
+              <linkMode>false</linkMode>
+              <responseSymbol>success</responseSymbol>
+              <shouldHandoff>false</shouldHandoff>
+              <transitionValue>0.0</transitionValue>
+              <destination>
+                <refId>a6d00745-c81c-438d-983c-5fc9d79e744e</refId>
+              </destination>
+              <source>
+                <refId>2bc93ea3-da04-453f-b1d3-9e3eab3fb037</refId>
+              </source>
+              <positions>
+                <point>
+                  <x>352.0</x>
+                  <y>496.0</y>
+                </point>
+                <point>
+                  <x>560.0</x>
+                  <y>503.0</y>
+                </point>
+              </positions>
+              <labelPosition>
+                <x>374.22130596513244</x>
+                <y>0.521014492911701</y>
+              </labelPosition>
+            </transition>
+            <transition id="6b0d8324-c320-41cc-8237-31f0d7ccd126">
+              <annotation>afb44618-b475-4e82-88ce-c64d395104df.6b0d8324-c320-41cc-8237-31f0d7ccd126.transition.description</annotation>
+              <name>failure</name>
+              <command>NEXT</command>
+              <linkMode>false</linkMode>
+              <responseSymbol>failure</responseSymbol>
+              <shouldHandoff>false</shouldHandoff>
+              <transitionValue>0.0</transitionValue>
+              <destination>
+                <refId>a6d00745-c81c-438d-983c-5fc9d79e744e</refId>
+              </destination>
+              <source>
+                <refId>2bc93ea3-da04-453f-b1d3-9e3eab3fb037</refId>
+              </source>
+              <positions>
+                <point>
+                  <x>352.0</x>
+                  <y>496.0</y>
+                </point>
+                <point>
+                  <x>412.80692150530996</x>
+                  <y>473.0322335207127</y>
+                </point>
+                <point>
+                  <x>500.87481871806887</x>
+                  <y>475.99605698460357</y>
+                </point>
+                <point>
+                  <x>560.0</x>
+                  <y>503.0</y>
+                </point>
+              </positions>
+              <labelPosition>
+                <x>370.873964173708</x>
+                <y>-16.367780824318658</y>
+              </labelPosition>
+            </transition>
+          </transitions>
+          <properties/>
+          <opRef>
+            <refId>237a5c37-ecbc-4ef1-af37-034e6f7e8f62</refId>
+          </opRef>
+          <assignments>
+            <flowVariableAssignment id="2fa36265-090a-41fe-9aef-643f1e956f2d">
+              <annotation></annotation>
+              <name>assignment</name>
+              <action>OVERWRITE</action>
+              <assignmentTargetType>FLOW_VARIABLE</assignmentTargetType>
+              <contextKey>dateTime</contextKey>
+              <expression id="7c19b52a-9e28-4f17-bafe-201e2d2a9bd0">
+                <annotation></annotation>
+                <name>Result Field: Result</name>
+                <fieldName>Result</fieldName>
+                <sourceType>RAWRESULT</sourceType>
+                <filters/>
+              </expression>
+            </flowVariableAssignment>
+          </assignments>
+          <throttleSize>0</throttleSize>
+        </step>
+        <step id="6769e1a7-1eec-4533-bf6a-ff5258e4d5ef">
+          <annotation>afb44618-b475-4e82-88ce-c64d395104df.6769e1a7-1eec-4533-bf6a-ff5258e4d5ef.description</annotation>
+          <name>Generate Random Number</name>
+          <bounds>
+            <x>289.0</x>
+            <y>284.0</y>
+          </bounds>
+          <layer>-1</layer>
+          <hideInbound>false</hideInbound>
+          <addResultToRunContext>false</addResultToRunContext>
+          <isCriticalStep>false</isCriticalStep>
+          <isNonBlocking>false</isNonBlocking>
+          <isParallelStep>false</isParallelStep>
+          <isSingleResponse>false</isSingleResponse>
+          <recordInHistory>false</recordInHistory>
+          <recordRawOutput>false</recordRawOutput>
+          <recordPrimaryOutput>false</recordPrimaryOutput>
+          <checkPointStep>true</checkPointStep>
+          <historyCheckPointStep>true</historyCheckPointStep>
+          <scriptResultStep>false</scriptResultStep>
+          <userPrompt></userPrompt>
+          <bindings>
+            <staticBinding id="6a96f8a8-3193-4cfe-be06-72d424f9d6c4">
+              <annotation></annotation>
+              <assignFromContext>true</assignFromContext>
+              <assignToContext>true</assignToContext>
+              <inputType>STRING</inputType>
+              <isList>false</isList>
+              <required>true</required>
+              <isPersisted>true</isPersisted>
+              <inputSymbol>max</inputSymbol>
+              <listDelimiter>,</listDelimiter>
+              <value>100</value>
+              <record>false</record>
+            </staticBinding>
+            <staticBinding id="fe9765da-f239-4c85-995e-2e9588fa253c">
+              <annotation></annotation>
+              <assignFromContext>true</assignFromContext>
+              <assignToContext>true</assignToContext>
+              <inputType>STRING</inputType>
+              <isList>false</isList>
+              <required>true</required>
+              <isPersisted>true</isPersisted>
+              <inputSymbol>min</inputSymbol>
+              <listDelimiter>,</listDelimiter>
+              <value>1</value>
+              <record>false</record>
+            </staticBinding>
+          </bindings>
+          <transitions>
+            <transition id="1d1fe197-28ec-4212-a4c8-d9d32b23a393">
+              <annotation>afb44618-b475-4e82-88ce-c64d395104df.1d1fe197-28ec-4212-a4c8-d9d32b23a393.transition.description</annotation>
+              <name>success</name>
+              <command>NEXT</command>
+              <linkMode>false</linkMode>
+              <responseSymbol>success</responseSymbol>
+              <shouldHandoff>false</shouldHandoff>
+              <transitionValue>0.0</transitionValue>
+              <destination>
+                <refId>a6d00745-c81c-438d-983c-5fc9d79e744e</refId>
+              </destination>
+              <source>
+                <refId>6769e1a7-1eec-4533-bf6a-ff5258e4d5ef</refId>
+              </source>
+              <positions>
+                <point>
+                  <x>391.5</x>
+                  <y>321.5813953488372</y>
+                </point>
+                <point>
+                  <x>436.0</x>
+                  <y>340.0</y>
+                </point>
+                <point>
+                  <x>552.0</x>
+                  <y>337.5</y>
+                </point>
+              </positions>
+              <labelPosition>
+                <x>449.97522890166175</x>
+                <y>8.04223955738973</y>
+              </labelPosition>
+            </transition>
+            <transition id="fe9c4621-22b2-4782-bcf3-398c219879e1">
+              <annotation>afb44618-b475-4e82-88ce-c64d395104df.fe9c4621-22b2-4782-bcf3-398c219879e1.transition.description</annotation>
+              <name>failure</name>
+              <command>NEXT</command>
+              <linkMode>false</linkMode>
+              <responseSymbol>failure</responseSymbol>
+              <shouldHandoff>false</shouldHandoff>
+              <transitionValue>0.0</transitionValue>
+              <destination>
+                <refId>a6d00745-c81c-438d-983c-5fc9d79e744e</refId>
+              </destination>
+              <source>
+                <refId>6769e1a7-1eec-4533-bf6a-ff5258e4d5ef</refId>
+              </source>
+              <positions>
+                <point>
+                  <x>339.0</x>
+                  <y>336.0</y>
+                </point>
+                <point>
+                  <x>400.21807889108635</x>
+                  <y>314.1517319477097</y>
+                </point>
+                <point>
+                  <x>501.3802156549461</x>
+                  <y>319.41582503723185</y>
+                </point>
+                <point>
+                  <x>560.0</x>
+                  <y>347.5</y>
+                </point>
+              </positions>
+              <labelPosition>
+                <x>446.2714562869059</x>
+                <y>-11.477102761682753</y>
+              </labelPosition>
+            </transition>
+          </transitions>
+          <properties/>
+          <opRef>
+            <refId>2c22355a-9c26-4a9e-893c-01a35e4bb0e3</refId>
+          </opRef>
+          <assignments>
+            <flowVariableAssignment id="050c78af-3b47-4268-ab4a-bcf4d90462f3">
+              <annotation></annotation>
+              <name>assignment</name>
+              <action>OVERWRITE</action>
+              <assignmentTargetType>FLOW_VARIABLE</assignmentTargetType>
+              <contextKey>randomNumber</contextKey>
+              <expression id="180ffc82-5961-43b1-999d-63274d65c758">
+                <annotation></annotation>
+                <name>Result Field: returnResult</name>
+                <fieldName>returnResult</fieldName>
+                <sourceType>RAWRESULT</sourceType>
+                <filters/>
+              </expression>
+            </flowVariableAssignment>
+          </assignments>
+          <throttleSize>0</throttleSize>
+        </step>
+        <endBranchStep id="a6d00745-c81c-438d-983c-5fc9d79e744e">
+          <annotation>afb44618-b475-4e82-88ce-c64d395104df.a6d00745-c81c-438d-983c-5fc9d79e744e.description</annotation>
+          <name>End Branch</name>
+          <bounds>
+            <x>0.0</x>
+            <y>0.0</y>
+          </bounds>
+          <layer>-1</layer>
+          <hideInbound>false</hideInbound>
+          <addResultToRunContext>false</addResultToRunContext>
+          <isCriticalStep>false</isCriticalStep>
+          <isNonBlocking>false</isNonBlocking>
+          <isParallelStep>false</isParallelStep>
+          <isSingleResponse>false</isSingleResponse>
+          <recordInHistory>false</recordInHistory>
+          <recordRawOutput>true</recordRawOutput>
+          <recordPrimaryOutput>true</recordPrimaryOutput>
+          <checkPointStep>true</checkPointStep>
+          <historyCheckPointStep>true</historyCheckPointStep>
+          <scriptResultStep>false</scriptResultStep>
+          <userPrompt></userPrompt>
+          <bindings/>
+          <transitions>
+            <transition id="1ed3f93c-a4c4-4aaa-bb34-b92d5e0ef917">
+              <annotation></annotation>
+              <name>End Branch</name>
+              <command>NEXT</command>
+              <linkMode>false</linkMode>
+              <responseSymbol>success</responseSymbol>
+              <shouldHandoff>false</shouldHandoff>
+              <transitionValue>0.0</transitionValue>
+              <destination>
+                <refId>a6d00745-c81c-438d-983c-5fc9d79e744e</refId>
+              </destination>
+              <source>
+                <refId>a6d00745-c81c-438d-983c-5fc9d79e744e</refId>
+              </source>
+              <positions/>
+            </transition>
+          </transitions>
+          <properties/>
+        </endBranchStep>
+      </steps>
+      <startSteps>
+        <refId>6769e1a7-1eec-4533-bf6a-ff5258e4d5ef</refId>
+        <refId>2bc93ea3-da04-453f-b1d3-9e3eab3fb037</refId>
+      </startSteps>
+      <lanes>
+        <parallelLane id="d6c4cdce-3a75-4cfd-a900-e91bdb2c3257">
+          <annotation></annotation>
+          <name>Generate Random Number</name>
+          <bounds>
+            <x>0.0</x>
+            <y>0.0</y>
+            <width>417.0</width>
+            <height>161.0</height>
+          </bounds>
+          <parallelSteps>
+            <refId>6769e1a7-1eec-4533-bf6a-ff5258e4d5ef</refId>
+          </parallelSteps>
+          <parallelStartStep>
+            <refId>6769e1a7-1eec-4533-bf6a-ff5258e4d5ef</refId>
+          </parallelStartStep>
+        </parallelLane>
+        <parallelLane id="8baa679a-627f-49f8-94bd-3c4a2ccd8894">
+          <annotation></annotation>
+          <name>Get Current Date/Time</name>
+          <bounds>
+            <x>0.0</x>
+            <y>0.0</y>
+            <width>417.0</width>
+            <height>150.0</height>
+          </bounds>
+          <parallelSteps>
+            <refId>2bc93ea3-da04-453f-b1d3-9e3eab3fb037</refId>
+          </parallelSteps>
+          <parallelStartStep>
+            <refId>2bc93ea3-da04-453f-b1d3-9e3eab3fb037</refId>
+          </parallelStartStep>
+        </parallelLane>
+      </lanes>
+      <callouts/>
+    </parallelMultiStep>
+    <returnStep id="c3587472-dd17-4006-920b-fde3cfcb0746">
+      <annotation></annotation>
+      <name>Resolved : success</name>
+      <bounds>
+        <x>897.0</x>
+        <y>605.0</y>
+      </bounds>
+      <layer>-1</layer>
+      <hideInbound>false</hideInbound>
+      <addResultToRunContext>false</addResultToRunContext>
+      <isCriticalStep>false</isCriticalStep>
+      <isNonBlocking>false</isNonBlocking>
+      <isParallelStep>false</isParallelStep>
+      <isSingleResponse>false</isSingleResponse>
+      <recordInHistory>false</recordInHistory>
+      <recordRawOutput>false</recordRawOutput>
+      <recordPrimaryOutput>false</recordPrimaryOutput>
+      <checkPointStep>true</checkPointStep>
+      <historyCheckPointStep>true</historyCheckPointStep>
+      <scriptResultStep>false</scriptResultStep>
+      <userPrompt></userPrompt>
+      <bindings/>
+      <transitions>
+        <transition id="a1af2d05-e451-445d-b613-5ed328caab76">
+          <annotation></annotation>
+          <name>return</name>
+          <command>NEXT</command>
+          <linkMode>false</linkMode>
+          <responseSymbol>success</responseSymbol>
+          <shouldHandoff>false</shouldHandoff>
+          <transitionValue>0.0</transitionValue>
+          <destination>
+            <refId>c3587472-dd17-4006-920b-fde3cfcb0746</refId>
+          </destination>
+          <source>
+            <refId>c3587472-dd17-4006-920b-fde3cfcb0746</refId>
+          </source>
+          <positions/>
+        </transition>
+        <transition id="0c628555-6576-4e0a-b9e3-c2a987237633">
+          <annotation></annotation>
+          <name>return</name>
+          <command>NEXT</command>
+          <linkMode>false</linkMode>
+          <responseSymbol>success</responseSymbol>
+          <shouldHandoff>false</shouldHandoff>
+          <transitionValue>0.0</transitionValue>
+          <destination>
+            <refId>c3587472-dd17-4006-920b-fde3cfcb0746</refId>
+          </destination>
+          <source>
+            <refId>c3587472-dd17-4006-920b-fde3cfcb0746</refId>
+          </source>
+          <positions/>
+        </transition>
+        <transition id="28136312-8ebe-4db3-b38e-396cced334f6">
+          <annotation></annotation>
+          <name>return</name>
+          <command>NEXT</command>
+          <linkMode>false</linkMode>
+          <responseSymbol>success</responseSymbol>
+          <shouldHandoff>false</shouldHandoff>
+          <transitionValue>0.0</transitionValue>
+          <destination>
+            <refId>c3587472-dd17-4006-920b-fde3cfcb0746</refId>
+          </destination>
+          <source>
+            <refId>c3587472-dd17-4006-920b-fde3cfcb0746</refId>
+          </source>
+          <positions/>
+        </transition>
+      </transitions>
+      <properties/>
+      <returnStepType>RESOLVED</returnStepType>
+      <assignments/>
+    </returnStep>
+    <step id="a3fab6de-11fe-41c0-99f6-d4504c2372c5">
+      <annotation>afb44618-b475-4e82-88ce-c64d395104df.a3fab6de-11fe-41c0-99f6-d4504c2372c5.description</annotation>
+      <name>Display Message</name>
+      <bounds>
+        <x>651.0</x>
+        <y>383.0</y>
+      </bounds>
+      <layer>-1</layer>
+      <hideInbound>false</hideInbound>
+      <addResultToRunContext>false</addResultToRunContext>
+      <isCriticalStep>false</isCriticalStep>
+      <isNonBlocking>false</isNonBlocking>
+      <isParallelStep>false</isParallelStep>
+      <isSingleResponse>false</isSingleResponse>
+      <recordInHistory>false</recordInHistory>
+      <recordRawOutput>false</recordRawOutput>
+      <recordPrimaryOutput>false</recordPrimaryOutput>
+      <checkPointStep>true</checkPointStep>
+      <historyCheckPointStep>true</historyCheckPointStep>
+      <scriptResultStep>false</scriptResultStep>
+      <userPrompt></userPrompt>
+      <bindings>
+        <staticBinding id="16d88a73-ffaa-4dba-a480-e7d3016d95e6">
+          <annotation></annotation>
+          <assignFromContext>true</assignFromContext>
+          <assignToContext>true</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>true</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>message</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>Parallel split step completed.
+
+The current date/time is ${dateTime}. 
+
+A random number: ${randomNumber}.</value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="f310050c-80da-450f-98d8-0bc6a23aae50">
+          <annotation></annotation>
+          <assignFromContext>true</assignFromContext>
+          <assignToContext>true</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>title</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>Status Message</value>
+          <record>false</record>
+        </staticBinding>
+      </bindings>
+      <transitions>
+        <transition id="6b15b799-90e1-47dd-9761-845e4762c74e">
+          <annotation>afb44618-b475-4e82-88ce-c64d395104df.6b15b799-90e1-47dd-9761-845e4762c74e.transition.description</annotation>
+          <name>success</name>
+          <command>NEXT</command>
+          <linkMode>false</linkMode>
+          <responseSymbol>success</responseSymbol>
+          <shouldHandoff>false</shouldHandoff>
+          <transitionValue>0.0</transitionValue>
+          <destination>
+            <refId>c3587472-dd17-4006-920b-fde3cfcb0746</refId>
+          </destination>
+          <source>
+            <refId>a3fab6de-11fe-41c0-99f6-d4504c2372c5</refId>
+          </source>
+          <positions>
+            <point>
+              <x>901.0</x>
+              <y>315.0</y>
+            </point>
+            <point>
+              <x>1000.0</x>
+              <y>313.0</y>
+            </point>
+          </positions>
+          <labelPosition>
+            <x>515.4551480099043</x>
+            <y>-14.870114376745637</y>
+          </labelPosition>
+        </transition>
+      </transitions>
+      <properties/>
+      <opRef>
+        <refId>434e6fa2-26bc-4e84-9e1f-0aa6946cf920</refId>
+      </opRef>
+      <assignments/>
+      <throttleSize>0</throttleSize>
+    </step>
+  </steps>
+  <startSteps>177fb2e6-a410-4940-ba4e-257816dd1068</startSteps>
+</flow>

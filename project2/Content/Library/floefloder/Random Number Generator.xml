@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<operation id="e255c1d6-70ef-4814-b448-2efeb23ce27f">
+  <descriptionCdata><![CDATA[e255c1d6-70ef-4814-b448-2efeb23ce27f.description=<pre>Generates a random number.\n\nInputs\:\nmax - The maximum number that can be returned.\nmin - The minimum number that can be returned.\n\nResponses\:\nsuccess - The operation completed Successfully.\nfailure - Something went wrong.\n\nReturns\:\nA random number between max and min (inclusive)</pre>
+]]></descriptionCdata>
+  <annotation>e255c1d6-70ef-4814-b448-2efeb23ce27f.description</annotation>
+  <name>Random Number Generator</name>
+  <categories/>
+  <inputs>
+    <userInputBinding id="cdc93f7c-3b8c-47b0-afbd-bc2d302a886b">
+      <annotation></annotation>
+      <assignFromContext>true</assignFromContext>
+      <assignToContext>true</assignToContext>
+      <inputType>STRING</inputType>
+      <isList>false</isList>
+      <required>true</required>
+      <isPersisted>true</isPersisted>
+      <inputSymbol>max</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <record>false</record>
+      <prompt></prompt>
+      <isMultiSelect>false</isMultiSelect>
+      <sourceDelimiter>|</sourceDelimiter>
+    </userInputBinding>
+    <userInputBinding id="f12a1760-7487-4bc9-8f1d-61b0e3fefa4f">
+      <annotation></annotation>
+      <assignFromContext>true</assignFromContext>
+      <assignToContext>true</assignToContext>
+      <inputType>STRING</inputType>
+      <isList>false</isList>
+      <required>true</required>
+      <isPersisted>true</isPersisted>
+      <inputSymbol>min</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <record>false</record>
+      <prompt></prompt>
+      <isMultiSelect>false</isMultiSelect>
+      <sourceDelimiter>|</sourceDelimiter>
+    </userInputBinding>
+  </inputs>
+  <possibleResponses>
+    <opResponse id="c622d1f8-efce-48e7-8406-b1f181d5be47">
+      <annotation></annotation>
+      <name>success</name>
+      <isDefault>false</isDefault>
+      <onFailure>false</onFailure>
+      <type>RESOLVED</type>
+      <matchRules>
+        <expression id="f925150b-0841-4c6e-acc7-8719d85e4294">
+          <annotation></annotation>
+          <name>response</name>
+          <fieldName>response</fieldName>
+          <sourceType>RAWRESULT</sourceType>
+          <compare id="0500b3a1-e5f0-4783-a1ed-070ee66eb659">
+            <annotation></annotation>
+            <name>Config Item</name>
+            <text>success</text>
+            <matchType>=</matchType>
+          </compare>
+          <filters/>
+        </expression>
+      </matchRules>
+    </opResponse>
+    <opResponse id="bd98f3f6-d0b6-4601-b659-e86c99d533ff">
+      <annotation></annotation>
+      <name>failure</name>
+      <isDefault>true</isDefault>
+      <onFailure>true</onFailure>
+      <type>ERROR</type>
+      <matchRules>
+        <expression id="02cd7879-b693-42be-8e47-bb5a8bffa275">
+          <annotation></annotation>
+          <name>response</name>
+          <fieldName>response</fieldName>
+          <sourceType>RAWRESULT</sourceType>
+          <compare id="39c426b5-2130-4582-b347-c7a3bce5d7b2">
+            <annotation></annotation>
+            <name>Config Item</name>
+            <text>failure</text>
+            <matchType>=</matchType>
+          </compare>
+          <filters/>
+        </expression>
+      </matchRules>
+    </opResponse>
+  </possibleResponses>
+  <availableResultExpressions/>
+  <resultExpression id="82eb55a4-7fdf-4375-b478-604c1399a58f">
+    <annotation></annotation>
+    <name>returnResult</name>
+    <fieldName>returnResult</fieldName>
+    <sourceType>RAWRESULT</sourceType>
+    <filters/>
+  </resultExpression>
+  <iconSpec id="2748d9fc-737f-486d-a01a-8363adbbebeb">
+    <baseIcon>wrench.png</baseIcon>
+    <basePath>Utilities</basePath>
+    <readOnly>false</readOnly>
+    <layers/>
+  </iconSpec>
+  <opRef>
+    <refId>2c22355a-9c26-4a9e-893c-01a35e4bb0e3</refId>
+  </opRef>
+  <fieldValues/>
+  <groupAliasRef>
+    <refId>5233030c-af46-432b-a682-b326ca6bf2ae</refId>
+    <refName>RAS_Operator_Path</refName>
+  </groupAliasRef>
+  <overrideGroupAlias>${overrideJRAS}</overrideGroupAlias>
+</operation>

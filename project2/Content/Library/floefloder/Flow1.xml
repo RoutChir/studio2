@@ -42,95 +42,6 @@
   <compatibleRuntimeContext>false</compatibleRuntimeContext>
   <historyCheckPointFlow>true</historyCheckPointFlow>
   <steps>
-    <step id="5a5ab0f4-46cf-4daa-8d49-f08a4e634dc6">
-      <annotation></annotation>
-      <name>Flow1</name>
-      <bounds>
-        <x>588.0</x>
-        <y>305.0</y>
-      </bounds>
-      <layer>-1</layer>
-      <hideInbound>false</hideInbound>
-      <addResultToRunContext>false</addResultToRunContext>
-      <isCriticalStep>false</isCriticalStep>
-      <isNonBlocking>false</isNonBlocking>
-      <isParallelStep>false</isParallelStep>
-      <isSingleResponse>false</isSingleResponse>
-      <recordInHistory>false</recordInHistory>
-      <recordRawOutput>true</recordRawOutput>
-      <recordPrimaryOutput>true</recordPrimaryOutput>
-      <checkPointStep>true</checkPointStep>
-      <historyCheckPointStep>true</historyCheckPointStep>
-      <scriptResultStep>false</scriptResultStep>
-      <userPrompt></userPrompt>
-      <bindings/>
-      <transitions>
-        <transition id="5738f517-77a2-4cfb-b6c8-0db98e7f2451">
-          <annotation></annotation>
-          <name>success</name>
-          <command>NEXT</command>
-          <linkMode>false</linkMode>
-          <responseSymbol>success</responseSymbol>
-          <shouldHandoff>false</shouldHandoff>
-          <transitionValue>0.0</transitionValue>
-          <destination>
-            <refId>97116d91-e7ea-46cd-8031-57a420063801</refId>
-          </destination>
-          <source>
-            <refId>5a5ab0f4-46cf-4daa-8d49-f08a4e634dc6</refId>
-          </source>
-          <positions>
-            <point>
-              <x>638.0</x>
-              <y>339.0</y>
-            </point>
-            <point>
-              <x>850.0</x>
-              <y>383.0</y>
-            </point>
-          </positions>
-          <labelPosition>
-            <x>333.0</x>
-            <y>0.0</y>
-          </labelPosition>
-        </transition>
-        <transition id="0525e5af-6e91-4c43-98c6-c3f85ec185d3">
-          <annotation></annotation>
-          <name>failure</name>
-          <command>NEXT</command>
-          <linkMode>false</linkMode>
-          <responseSymbol>failure</responseSymbol>
-          <shouldHandoff>false</shouldHandoff>
-          <transitionValue>0.0</transitionValue>
-          <destination>
-            <refId>a771be88-e487-4e08-b9df-c7adeb9b1b4b</refId>
-          </destination>
-          <source>
-            <refId>5a5ab0f4-46cf-4daa-8d49-f08a4e634dc6</refId>
-          </source>
-          <positions>
-            <point>
-              <x>638.0</x>
-              <y>339.0</y>
-            </point>
-            <point>
-              <x>427.0</x>
-              <y>500.0</y>
-            </point>
-          </positions>
-          <labelPosition>
-            <x>333.0</x>
-            <y>0.0</y>
-          </labelPosition>
-        </transition>
-      </transitions>
-      <properties/>
-      <opRef>
-        <refId>e017669b-8212-44fa-93f9-c33b6135db15</refId>
-      </opRef>
-      <assignments/>
-      <throttleSize>0</throttleSize>
-    </step>
     <returnStep id="97116d91-e7ea-46cd-8031-57a420063801">
       <annotation></annotation>
       <name>Resolved : success</name>
@@ -220,5 +131,4 @@
       <assignments/>
     </returnStep>
   </steps>
-  <startSteps>5a5ab0f4-46cf-4daa-8d49-f08a4e634dc6</startSteps>
 </flow>
